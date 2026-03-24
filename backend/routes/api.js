@@ -41,3 +41,13 @@ router.get('/location', async (req, res) => {
 });
 
 module.exports = router;
+export async function fetchStartups() {
+  try {
+    const response = await fetch('http://localhost:5000/api/startups'); // match your backend URL
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching startups:', error);
+    return [];
+  }
+}
