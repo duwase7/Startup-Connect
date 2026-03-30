@@ -1,29 +1,49 @@
-# StartupConnect
-## Overview
-StartupConnect connects startups with mentors, investors, and collaborators. Users can search, filter, and discover local startups and potential collaborators.
+# Startup Connect
+
+A modern startup networking platform built with React and Node.js.
 
 ## Features
-- Search startups by name
-- Filter by location or category
-- Interactive display of startup info
-- Error handling for API downtime
 
-## APIs Used
-- Crunchbase API (Startup info) [https://developer.crunchbase.com]
-- OpenCage Geocoding API (Location) [https://opencagedata.com]
+- User registration and authentication
+- Startup profiles and discovery
+- Advanced search and filtering
+- Connection system
+- Favorites and likes
+- Responsive design
 
-## Setup
-1. Clone repo
-2. `cd backend && npm install`
-3. Create `.env` with API keys
-4. Run server: `node server.js`
-5. Open `frontend/index.html` in browser
+## Tech Stack
 
-## Deployment
-- Copy project to Web01 and Web02
-- Start backend
-- Serve frontend via Nginx/Apache
-- Configure Lb01 load balancer for round-robin
+**Frontend:** React, TypeScript, Tailwind CSS
+**Backend:** Node.js, Express, MongoDB
+**Authentication:** JWT, bcrypt
 
-## Demo
-- Video link: [Add your demo link here]
+## Quick Start
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   cd backend && npm install
+   cd ../frontend && npm install
+   ```
+3. Set up environment variables (see `.env.example`)
+4. Start the development servers:
+   ```bash
+   # Backend
+   cd backend && npm run dev
+   
+   # Frontend
+   cd frontend && npm run dev
+   ```
+
+## Project Structure
+
+```
+Startup-Connect/
+├── backend/          # Node.js API server
+├── frontend/         # React application
+└── README.md
+```
+
+## License
+
+MIT

@@ -1,6 +1,50 @@
-body { font-family: Arial; margin:0; padding:0; background:#f7f7f7; }
-header { text-align:center; background:#1f2937; color:white; padding:20px; }
-main { padding:20px; }
-#searchInput { padding:10px; width:300px; }
-#searchBtn { padding:10px 15px; margin-left:5px; cursor:pointer; }
-.startup-card { background:white; margin:10px 0; padding:15px; border-radius:8px; box-shadow:0px 2px 5px rgba(0,0,0,0.2);}
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  background: #1f2937;
+  color: white;
+  padding: 20px;
+}
+
+main {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#searchInput {
+  padding: 10px;
+  width: 300px;
+}
+
+#searchBtn {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.startup-card {
+  background: white;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  margin: 0 5px;
+  cursor: pointer;
+}
