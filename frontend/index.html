@@ -54,6 +54,7 @@
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
         .card:hover {
@@ -153,22 +154,22 @@
         </header>
 
         <div class="grid">
-            <div class="card">
+            <div class="card" onclick="showFeature('search')">
                 <h3>🔍 Advanced Search</h3>
                 <p>Find the right startups, investors, and mentors with powerful search filters. Filter by industry, stage, location, and funding.</p>
-                <a href="#" class="btn" onclick="alert('Demo: Search functionality coming soon!')">Explore Startups</a>
+                <a href="#" class="btn">Explore Startups</a>
             </div>
 
-            <div class="card">
+            <div class="card" onclick="showFeature('network')">
                 <h3>🔗 Network Building</h3>
                 <p>Build meaningful connections with industry leaders, investors, and fellow founders. Send connection requests and grow your professional network.</p>
-                <a href="#" class="btn" onclick="alert('Demo: Network features coming soon!')">Build Network</a>
+                <a href="#" class="btn">Build Network</a>
             </div>
 
-            <div class="card">
+            <div class="card" onclick="showFeature('analytics')">
                 <h3>📊 Analytics Dashboard</h3>
                 <p>Track your network growth, engagement metrics, and discover insights to optimize your strategy. Comprehensive analytics for data-driven decisions.</p>
-                <a href="#" class="btn" onclick="alert('Demo: Analytics dashboard coming soon!')">View Analytics</a>
+                <a href="#" class="btn">View Analytics</a>
             </div>
         </div>
 
@@ -176,19 +177,19 @@
             <h2 style="margin-bottom: 2rem;">Our Impact</h2>
             <div class="stats-grid">
                 <div class="stat-item">
-                    <h3>1000+</h3>
+                    <h3 data-count="1000">0</h3>
                     <p>Startups</p>
                 </div>
                 <div class="stat-item">
-                    <h3>500+</h3>
+                    <h3 data-count="500">0</h3>
                     <p>Investors</p>
                 </div>
                 <div class="stat-item">
-                    <h3>2000+</h3>
+                    <h3 data-count="2000">0</h3>
                     <p>Connections</p>
                 </div>
                 <div class="stat-item">
-                    <h3>50+</h3>
+                    <h3 data-count="50">0</h3>
                     <p>Industries</p>
                 </div>
             </div>
@@ -200,8 +201,8 @@
                 Join thousands of startups, investors, and mentors who are building the future together.
             </p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="#" class="btn" style="background: #667eea;" onclick="alert('Demo: Registration coming soon!')">Get Started Free</a>
-                <a href="#" class="btn" style="background: transparent; border: 2px solid white;" onclick="alert('Demo: Learn more coming soon!')">Learn More</a>
+                <a href="#" class="btn" style="background: #667eea;">Get Started Free</a>
+                <a href="#" class="btn" style="background: transparent; border: 2px solid white;">Learn More</a>
             </div>
         </div>
 
@@ -221,5 +222,47 @@
             </p>
         </footer>
     </div>
+
+    <script>
+        // Demo functionality
+        function showFeature(feature) {
+            const messages = {
+                'search': 'Demo Mode: Search functionality coming soon! Full version includes React frontend with Node.js backend.',
+                'network': 'Demo Mode: Network features coming soon! Full version includes JWT authentication and user management.',
+                'analytics': 'Demo Mode: Analytics dashboard coming soon! Check the GitHub repository for complete implementation.'
+            };
+            
+            alert(messages[feature] || 'Feature coming soon!');
+        }
+
+        // Add hover effects
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Count up animation for stats
+        const stats = document.querySelectorAll('.stat-item h3');
+        stats.forEach(stat => {
+            const target = parseInt(stat.getAttribute('data-count'));
+            const increment = target / 100;
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                stat.textContent = Math.floor(current) + (target >= 1000 ? '+' : '');
+            }, 20);
+        });
+    </script>
 </body>
 </html>
